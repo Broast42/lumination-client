@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+
+.chat-box{
+  width: 500px;
+  height: 500px;
+  border: 2px solid black;
+  margin: 10px auto;
+}
+
+.message-window{
+  width: 480px;
+  height: 420px;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.input-window{
+  display: flex;
+  margin: 10px;
+
+}
