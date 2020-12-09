@@ -1,31 +1,74 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import 'antd/dist/antd.css';
-import { Form, Input, Button, Alert } from 'antd';
+import { Form, Input, Button} from 'antd';
 import { MailOutlined, LockOutlined, LoadingOutlined } from '@ant-design/icons';
 import { login } from '../../store/actions/index';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
 const Login = (props) =>{
 
     let history = useHistory();
-
+    
     const logon = values => {
         props.login(values, history);
-        console.log(props);
         
     }
 
+    const layout = {
+        lableCol: {offset: 0}
+    }
+    
     return(
         <div className="login-form">
             <Form 
+                {...layout}
                 name='login'
-                onFinish={logon}
-            
+                onFinish={logon} 
             >
-                <p>Welcome to Lumination</p>
-                <Form.Item
+                <div className="login-inputs">
+                    <div className="form-item">
+                        <Form.Item
+                            name='email'
+                            rules={[
+                                {
+                                required: true,
+                                message: 'Please input your email address!',
+                                },
+                            ]}
+                            noStyle="true"
+                            
+                        >
+                            <Input prefix={<MailOutlined />} placeholder=" Email Address" className="input"/>
+                        </Form.Item>
+                    </div>
+                    <div className="form-item">
+                        <Form.Item
+                            name='password'
+                            rules={[
+                                {
+                                required: true,
+                                message: 'Please input your password!',
+                                },
+                            ]}
+                            noStyle="true"
+                        >
+                            <Input.Password prefix={<LockOutlined />}placeholder=" Password"/>
+                        </Form.Item>
+                    </div> 
+                    <div className="form-item-btn">
+                        <Form.Item  noStyle="true">
+                            <Button  htmlType="submit" className="submitBtn">
+                                {props.isAuthorizing ? <LoadingOutlined /> : "Log in"}
+                            </Button>
+                        </Form.Item>
+                    </div>
+                    
+
+                </div>
+
+                {/* <Form.Item
                     name='email'
                     rules={[
                         {
@@ -58,7 +101,7 @@ const Login = (props) =>{
                 : null}
 
                 <Form.Item >
-                    <Button type="primary" htmlType="submit" className="submitBtn">
+                    <Button  htmlType="submit" className="submitBtn">
                         {props.isAuthorizing ? <LoadingOutlined /> : "Log in"}
                     </Button>
                 </Form.Item>
@@ -67,12 +110,12 @@ const Login = (props) =>{
 
                 <Form.Item>
                     <Link to="/register">
-                        <Button className="submitBtn">
+                        <Button className="regBtn">
                             Sign Up!
                         </Button>
                     </Link>
                     
-                </Form.Item>
+                </Form.Item> */}
 
 
             </Form>

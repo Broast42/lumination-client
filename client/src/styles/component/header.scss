@@ -1,0 +1,27 @@
+.header {
+    width: 100%;
+    min-height: 50px;
+    background: $primary;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid $secondary;
+
+    .links{
+        display: flex;
+        font-size: 1.6rem;
+    }
+
+    div{
+        margin: 0px 20px;
+    }
+
+    h1{
+        font-size: 2rem;
+        color: $neutral-dark;
+    }
+
+    .active{
+        color: $neutral-light;
+    }
+}

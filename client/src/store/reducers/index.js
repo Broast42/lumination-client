@@ -6,7 +6,7 @@ const initialState = {
         username: ""
     },
     isAuthorizing: false,
-    isLogged: false,
+    isAuthorized: false,
     error: null,
 }
 
@@ -27,7 +27,7 @@ export const reducer = (state = initialState, action) => {
                     email: action.payload.email,
                 },
                 isAuthorizing: false,
-                isLogged: true,
+                isAuthorized: true,
                 error: null
         
             }

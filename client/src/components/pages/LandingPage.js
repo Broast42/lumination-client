@@ -1,27 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import LoginPage from './LoginPage';
-
 
 const FrontPage = props => {
-
-    let history = useHistory();
     
-    if(props.isLogged === true){
-        history.push("/home");
-    }
-        
     return(
         <div>
-            <LoginPage />
+            test
+            {/* <LoginPage /> */}
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        isLogged: state.isLogged,
+        ...state
     }
 }
 

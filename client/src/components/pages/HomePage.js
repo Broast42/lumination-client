@@ -1,25 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import io from "socket.io-client";
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+
 
 const HomePage = props => {
 
-    const history = useHistory();
-
-    if (props.isLogged === false){
-        history.push("/")
-    }
+    const [socket, setSocket] = useState(null)
+    
+    useEffect(() => {
+        setSocket(io.connect("http://localhost:8000"))
+        
+    },[])
     
     return (
         <div>
-            Home 
+            this is home
+            
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        isLogged: state.isLogged,
+        ...state
     }
 }
 
