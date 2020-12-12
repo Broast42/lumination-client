@@ -1,4 +1,4 @@
-import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL } from '../actions/index';
+import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_START, LOGOUT_FAIL, LOGOUT_SUCCESS } from '../actions/index';
 
 const initialState = {
     user:{
@@ -7,6 +7,7 @@ const initialState = {
     },
     isAuthorizing: false,
     isAuthorized: false,
+    isLoggingOut: false,
     error: null,
 }
 
@@ -35,6 +36,20 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isAuthorizing: false,
+                error: action.payload
+            }
+        case LOGOUT_START:
+            return {
+                ...state,
+                isLoggingOut: true,
+            }
+        case LOGOUT_SUCCESS:
+            return {
+                ...initialState
+            }
+        case LOGOUT_FAIL:
+            return {
+                ...state,
                 error: action.payload
             }
         default:

@@ -7,6 +7,12 @@
     align-items: center;
     border-bottom: 2px solid $secondary;
 
+    .links-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .links{
         display: flex;
         font-size: 1.6rem;
@@ -23,5 +29,15 @@
 
     .active{
         color: $neutral-light;
+    }
+
+    .logout-btn{
+        background-color: $secondary-dark;
+        color: $neutral-light;
+        border-color: $secondary;
+
+        &:hover{
+            background-color: $neutral-dark;
+        }
     }
 }

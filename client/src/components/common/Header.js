@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { headerLinks } from '../../data';
 import { connect } from 'react-redux';
 import Login from './Login';
+import Logout from './Logout';
 
 const Header = (props) => {
 
@@ -13,15 +14,18 @@ const Header = (props) => {
             </div>
             
             {props.isAuthorized ?
-                <div className="links">
-                    {headerLinks.map((link, index) => (
-                        <div>
-                            <NavLink key={index} exact to={link.link} activeClassName="active">
-                                {link.title}
-                            </NavLink>
-                        </div>
-                    ))}
-
+                <div className="links-container">
+                    <div className="links">
+                        {headerLinks.map((link, index) => (
+                            <div>
+                                <NavLink key={index} exact to={link.link} activeClassName="active">
+                                    {link.title}
+                                </NavLink>
+                            </div>
+                        ))}
+                        
+                    </div>
+                    <Logout />
                 </div>
             :
                 <div>
