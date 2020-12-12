@@ -1,57 +1,31 @@
-import React, { useState, useEffect } from 'react'
-import './App.css'
-import io from "socket.io-client"
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+//import SocketTest from './components/SocketTest';
+import Header from "./components/common/Header";
+import LandingPage from './components/pages/LandingPage';
+import HomePage from './components/pages/HomePage';
+import RegisterPage from './components/pages/RegisterPage';
+import './styles/styles.scss'
 
 
 function App() {
 
-  const [socket, setSocket] = useState(null)
-  const [messages, setMessages] = useState([])
-  const [textToSend, setTextToSend] = useState('')
   
-  useEffect(() => {
-    setSocket(io.connect("http://localhost:8000"))
-  }, [])
 
-  useEffect(() => {
-    if(!socket) return
-    socket.on('getMessage', (data) => {
-      setMessages(oldArr => [...oldArr, data])
-    })
-  },[socket])
-
-  const textHandle = e => {
-      setTextToSend(e.target.value)
-  }
-
-  const sendMessage = (data) => {
-    socket.emit('chat', data)
-  }
-  //console.log(textToSend)
   return (
-    <div className="App">
-      <div className="chat-box">
-        <div className="message-window">
-            <div>
-              {
-                messages.map((x, i) => (
-                  <div key={i}>
-                    {x}
-                  </div>
-                ))
-              }
-            </div>
-        </div>
-        <div className="input-window">
-          <div>
-            <button onClick={(e) => {e.preventDefault(); sendMessage(textToSend)}}>Submit</button>
-          </div>
-          <div>
-            <input type="text" onChange={(e) => {textHandle(e)}}/>
-          </div>
-
-        </div>
-      </div>
+    <div>
+      <Header />
+      <Switch>
+        <Route path="/register">
+          <RegisterPage />
+        </Route>
+        <Route path="/home">
+          <HomePage />
+        </Route>
+        <Route path="/">
+          <LandingPage />
+        </Route>
+      </Switch>  
     </div>
   )
 }
