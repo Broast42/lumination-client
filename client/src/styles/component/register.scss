@@ -1,0 +1,29 @@
+
+.reg-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.register{
+    width: 450px;
+    min-height: 500px;
+    border: 1px solid $secondary;
+    border-radius: 25px;
+    background: $secondary-dark;
+    color: $neutral-light;
+
+
+    .title{
+        margin-top: 20px;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .reg-form{
+        width: 300px;
+        margin: 20px auto;
+        
+    }
+}

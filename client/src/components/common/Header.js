@@ -10,7 +10,7 @@ const Header = (props) => {
     return (
         <header className="header">
             <div>
-                <h1>Lumination</h1>
+                <h1>BitMen Battles</h1>
             </div>
             
             {props.isAuthorized ?
@@ -28,9 +28,10 @@ const Header = (props) => {
                     <Logout />
                 </div>
             :
-                <div>
-                    <Login />
-                </div>
+            null
+                // <div>
+                //     <Login />
+                // </div>
             }
             
             

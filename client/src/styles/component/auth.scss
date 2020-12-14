@@ -1,38 +1,14 @@
-
-.login-form {
-    //width: 200px;
-    //padding: 10px;
-    // border: 1px solid black;
-    // background: $primary;
-    .login-inputs{
-        display: flex;
-        align-items: center;
-        // width: 300px;
-        padding: 0px;
-    }
-
-    .form-item{
-        margin: 0px;
-        width: 200px;
-        margin-right: 5px;
-    }
-
-    .form-item-btn{
-        margin: 0px;
-        width: 100px; 
-    }
-
-    .input{
-        width: 100%;
-        margin: 0px;
-    }
-    // p{
-    //     text-align: center;
-    //     margin-bottom: 5px;
-    // }
+.reg-form-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-form{
+    padding: 10px;
+    width: 400px;
 
     .submitBtn {
-        width: 100px;
+        width: 100%;
         background: $secondary;
         border-color: $neutral-dark;
 
@@ -41,22 +17,5 @@
             border-color: $primary;
         }
     }
-
-    // .regBtn {
-    //     width: 100%;
-    //     background: $neutral-light;
-    //     border-color: $neutral-dark;
-
-    //     &:hover{
-    //         color: $primary;
-    //         border-color: $neutral-light;
-    //     }
-    // }
 }
 
-// .login-page{
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     min-height: 400px;
-// }
