@@ -1,0 +1,42 @@
+.landing{
+    margin: 10px auto;
+    padding: 20px;
+    text-align: center;
+    width: 76%;
+    background: $secondary-dark;
+    border: 1px solid $primary;
+    border-radius: 20px;
+
+    h1{
+        font-family: 'VT323', monospace;
+        font-size: 4rem;
+        text-shadow: 1px 1px 1px $primary;
+        color: $secondary;
+    }
+
+    p{
+        font-size: 1.6rem;
+        color: $neutral-light;
+    }
+
+    .sign-up{
+        margin-top: 40px;
+        margin-bottom: 20px;
+        
+        p{
+            margin: 10px;
+        }
+
+        .signup-btn{
+            background: $primary;
+            border-color: $secondary;
+            color: $neutral-light;
+            width: 175px;
+
+            &:hover{
+                border-color: $neutral-dark;
+                color: $secondary;
+            }
+        }
+    }
+}

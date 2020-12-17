@@ -5,7 +5,8 @@ import Header from "./components/common/Header";
 import LandingPage from './components/pages/LandingPage';
 import HomePage from './components/pages/HomePage';
 import RegisterPage from './components/pages/RegisterPage';
-import './styles/styles.scss'
+import './styles/styles.scss';
+import 'antd/dist/antd.css';
 
 
 function App() {

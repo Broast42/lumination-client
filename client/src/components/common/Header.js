@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { headerLinks } from '../../data';
 import { connect } from 'react-redux';
-import Login from './Login';
 import Logout from './Logout';
 
 const Header = (props) => {
@@ -10,7 +9,7 @@ const Header = (props) => {
     return (
         <header className="header">
             <div>
-                <h1>Lumination</h1>
+                <h1>BitMen Battles</h1>
             </div>
             
             {props.isAuthorized ?
@@ -28,9 +27,10 @@ const Header = (props) => {
                     <Logout />
                 </div>
             :
-                <div>
-                    <Login />
-                </div>
+            null
+                // <div>
+                //     <Login />
+                // </div>
             }
             
             

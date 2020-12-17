@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import 'antd/dist/antd.css';
 import { Form, Input, Button} from 'antd';
 import { MailOutlined, LockOutlined, LoadingOutlined } from '@ant-design/icons';
 import { login } from '../../store/actions/index';
@@ -17,110 +16,61 @@ const Login = (props) =>{
     }
 
     const layout = {
-        lableCol: {offset: 0}
+        wrapperCol: {}
+        
     }
     
     return(
-        <div className="login-form">
+        <div className="reg-form-container">
             <Form 
+                name="login"
+                onFinish={logon}
+                className='login-form'
                 {...layout}
-                name='login'
-                onFinish={logon} 
             >
-                <div className="login-inputs">
-                    <div className="form-item">
-                        <Form.Item
-                            name='email'
-                            rules={[
-                                {
-                                required: true,
-                                message: 'Please input your email address!',
-                                },
-                            ]}
-                            noStyle="true"
-                            
-                        >
-                            <Input prefix={<MailOutlined />} placeholder=" Email Address" className="input"/>
-                        </Form.Item>
-                    </div>
-                    <div className="form-item">
-                        <Form.Item
-                            name='password'
-                            rules={[
-                                {
-                                required: true,
-                                message: 'Please input your password!',
-                                },
-                            ]}
-                            noStyle="true"
-                        >
-                            <Input.Password prefix={<LockOutlined />}placeholder=" Password"/>
-                        </Form.Item>
-                    </div> 
-                    <div className="form-item-btn">
-                        <Form.Item  noStyle="true">
-                            <Button  htmlType="submit" className="submitBtn">
-                                {props.isAuthorizing ? <LoadingOutlined /> : "Log in"}
-                            </Button>
-                        </Form.Item>
-                    </div>
-                    
-
-                </div>
-
-                {/* <Form.Item
+                
+                <Form.Item 
                     name='email'
                     rules={[
                         {
-                          required: true,
-                          message: 'Please input your email address!',
+                            required: true,
+                            message: 'Please input your email address!',
                         },
+                        {
+                            type: 'email',
+                            message: 'Must be a valid email address.'
+                        }
                     ]}
+                    
+                    
                 >
-                    <Input prefix={<MailOutlined />} placeholder=" Email Address"/>
+                    <Input prefix={<MailOutlined />} placeholder=" Email Address" />
                 </Form.Item>
-
-                <Form.Item
+                
+                <Form.Item 
                     name='password'
                     rules={[
                         {
-                          required: true,
-                          message: 'Please input your password!',
+                        required: true,
+                        message: 'Please input your password!',
                         },
-                      ]}
+                    ]}
                 >
                     <Input.Password prefix={<LockOutlined />}placeholder=" Password"/>
                 </Form.Item>
-
                 
-                {props.error !== null ?
-                    <Form.Item>
-                        <Alert message={props.error.data.message} type="error" showIcon /> 
-                    </Form.Item> 
-                    
-                : null}
-
-                <Form.Item >
-                    <Button  htmlType="submit" className="submitBtn">
-                        {props.isAuthorizing ? <LoadingOutlined /> : "Log in"}
-                    </Button>
-                </Form.Item>
-
-                <p>Dont have an account?</p>
-
                 <Form.Item>
-                    <Link to="/register">
-                        <Button className="regBtn">
-                            Sign Up!
-                        </Button>
-                    </Link>
-                    
-                </Form.Item> */}
-
+                    <Button htmlType="submit" className="submitBtn">
+                        {props.isAuthorizing ? <LoadingOutlined /> : "Log In"}
+                    </Button> 
+                </Form.Item>
+                
+                
 
             </Form>
 
         </div>
+      
     )
 }
 

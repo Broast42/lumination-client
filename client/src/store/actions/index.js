@@ -5,13 +5,12 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 
 export const login = (creds, history) => dispatch =>{
-    //console.log('working');
+    
     dispatch({type: LOGIN_START})
     
     axios
         .post(`${process.env.REACT_APP_API}/auth/login`, creds)
         .then(res => {
-            //console.log(res);
             dispatch({ type: LOGIN_SUCCESS, payload: res.data })
             localStorage.setItem('token', res.data.token)
             localStorage.setItem('userId', res.data.id)
@@ -42,4 +41,24 @@ export const logout = (history) => dispatch => {
         dispatch({type: LOGOUT_FAIL, payload: err.response });
 
     }
+}
+
+export const REGISTER_START = "REGISTER_START";
+export const REGISTER_SUCCESS = "REGISTER_SUCESS";
+export const REGISTER_FAIL = "REGISTER_FAIL";
+
+export const register = (userinfo, history) => dispatch => {
+    
+    dispatch({type: REGISTER_START})
+
+    axios
+        .post(`${process.env.REACT_APP_API}/auth/register`, userinfo)
+        .then(res =>{
+            dispatch({type: REGISTER_SUCCESS, payload: res.data})
+            history.push("/")
+        })
+        .catch(err => {
+            dispatch({type: REGISTER_FAIL, payload: err.response})
+        })
+        
 }
