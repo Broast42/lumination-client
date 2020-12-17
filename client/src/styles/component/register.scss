@@ -26,4 +26,47 @@
         margin: 20px auto;
         
     }
+
+    .dob-flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p{
+            color: $neutral-light;
+            font-size: 1.6rem;
+        }
+    }
+
+    .radio-container{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .radio{
+        color: $neutral-light;
+    }
+
+    .reg-btn{
+        width: 100%;
+        background: $primary;
+        border-color: $secondary;
+
+        &:hover{
+            color: $neutral-light;
+            border-color: $primary;
+        }
+    }
+}
+
+.reg-spin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.reg-error{
+    width: 400px;
+    margin: 0px auto;
 }

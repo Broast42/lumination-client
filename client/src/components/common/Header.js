@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { headerLinks } from '../../data';
 import { connect } from 'react-redux';
-import Login from './Login';
 import Logout from './Logout';
 
 const Header = (props) => {

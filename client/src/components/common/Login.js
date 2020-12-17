@@ -41,9 +41,7 @@ const Login = (props) =>{
                             message: 'Must be a valid email address.'
                         }
                     ]}
-                    validateStatus="validating"
-                    help="Should be combination of numbers & alphabets"
-                    hasFeedback
+                    
                     
                 >
                     <Input prefix={<MailOutlined />} placeholder=" Email Address" />
