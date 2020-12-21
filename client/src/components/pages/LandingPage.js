@@ -6,7 +6,7 @@ import Login from '../common/Login'
 
 
 const LandingPage = props => {
-    console.log(props);
+    //console.log(props);
     return(
         <div>
             <div className="landing">

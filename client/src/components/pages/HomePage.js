@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import io from "socket.io-client";
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import HomeUserInfo from './page-components/HomeUserInfo'
 
 
 const HomePage = props => {
@@ -9,20 +10,27 @@ const HomePage = props => {
     const [socket, setSocket] = useState(null)
     const history = useHistory()
 
-    //FUTURE NOTE: tracking isAuthorised if false we will want to check local storage for token 
-    //and if so get and update state as if we are logged in otherwise push to landing page.
-    if(!props.isAuthorized){
+    const token = localStorage.getItem("token")
+    
+    if(!token){
         history.push("/");
     }
 
     useEffect(() => {
-        setSocket(io.connect("http://localhost:8000"))
-        
-    },[])
+        if(props.user.id !== -1){
+          setSocket(io.connect(`http://localhost:8000?id=${props.user.id}`))  
+        }
+     
+    },[props.user.id])
     
     return (
         <div>
-            this is home   
+            <div>
+                <HomeUserInfo /> 
+            </div>
+            <div>
+
+            </div>
         </div>
     )
 }
