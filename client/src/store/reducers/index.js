@@ -1,3 +1,4 @@
+
 import { 
     LOGIN_START, 
     LOGIN_SUCCESS, 
@@ -7,7 +8,10 @@ import {
     LOGOUT_SUCCESS,
     REGISTER_START,
     REGISTER_SUCCESS,
-    REGISTER_FAIL, 
+    REGISTER_FAIL,
+    USERINFO_START,
+    USERINFO_SUCCESS,
+    USERINFO_FAIL, 
 } from '../actions/index';
 
 const initialState = {
@@ -20,6 +24,8 @@ const initialState = {
     isLoggingOut: false,
     isRegistering: false,
     justRegistered: false,
+    isFetchingInfo: false,
+    userInfoExists: false,
     error: null,
 }
 
@@ -34,11 +40,6 @@ export const reducer = (state = initialState, action) => {
         case LOGIN_SUCCESS:
             return {
                 ...state,
-                // user: {
-                //     id: action.payload.id,
-                //     username: action.payload.username,
-                //     email: action.payload.email,
-                // },
                 user: action.payload,
                 isAuthorizing: false,
                 isAuthorized: true,
@@ -70,18 +71,39 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isRegistering: true,
+                error: null
             }
         case REGISTER_SUCCESS:
             return {
                 ...state,
                 isRegistering: false,
-                justRegistered: true
+                justRegistered: true,
+                error: null
             }
         case REGISTER_FAIL:
             return {
                 ...state,
                 error: action.payload,
                 isRegistering: false,
+            }
+        case USERINFO_START:
+            return {
+                ...state,
+                isFetchingInfo: true,
+            }
+        case USERINFO_SUCCESS:
+            return {
+                ...state,
+                user: action.payload,
+                isFetchingInfo: false,
+                userInfoExists: true,
+                isAuthorized: true,
+            }
+        case USERINFO_FAIL:
+            return {
+                ...state,
+                isFetchingInfo: false,
+                error: action.payload,
             }
         default:
             return state

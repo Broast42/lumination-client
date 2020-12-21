@@ -1,0 +1,75 @@
+.home-user-info{
+    padding: 20px;
+    
+    .user-info-window{
+        color: $neutral-light;
+        padding: 10px;
+        width: 48%;
+        min-height: 250px;
+        background: $secondary-dark;
+        border: 2px solid $secondary;
+        border-radius: 10px;
+        font-size: 1.6rem;
+        
+        .user-name{
+            font-family: 'VT323', monospace;
+            color: $primary;
+            font-size: 3.4rem;
+            text-shadow: 1px 1px 0px $neutral-light;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .level-stats{
+            text-align: center;
+            margin-top: 10px;
+
+            div{
+                margin-bottom: 5px;;
+            }
+        }
+
+        .level-info{
+            display: flex;
+            padding: 10px;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .user-stats{
+            width: 25%;
+            text-align: center;
+
+            div{
+                margin: 10px 0px;
+
+                p:first-child{
+                    margin-bottom: 5px;
+                    
+                }
+            }
+        }
+
+        .wins{
+            color: #2cd916; 
+        }
+
+        .losses{
+           color: #f26666; 
+        }
+
+        .draws{
+            color: #fcb900;
+        }
+
+        .progress .ant-progress-text{
+            color: $neutral-light;
+            font-size: 4rem;
+            
+        }
+    
+    
+    }
+
+
+}
