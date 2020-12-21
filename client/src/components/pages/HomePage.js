@@ -17,16 +17,20 @@ const HomePage = props => {
     }
 
     useEffect(() => {
-        setSocket(io.connect("http://localhost:8000"))
-        
-    },[])
+        if(props.user.id !== -1){
+          setSocket(io.connect(`http://localhost:8000?id=${props.user.id}`))  
+        }
+     
+    },[props.user.id])
     
     return (
         <div>
             <div>
                 <HomeUserInfo /> 
             </div>
-            <div></div>
+            <div>
+
+            </div>
         </div>
     )
 }

@@ -62,3 +62,20 @@ export const register = (userinfo, history) => dispatch => {
         })
         
 }
+
+export const USERINFO_START = "USERINFO_START";
+export const USERINFO_SUCCESS = "USERINFO_SUCCESS";
+export const USERINFO_FAIL = "USERINFO_FAIL";
+
+export const getUserInfo = (id) => dispatch => {
+    dispatch({type: USERINFO_START})
+
+    axios
+        .get(`${process.env.REACT_APP_API}/users/userinfo/${id}`)
+        .then(res => {
+            dispatch({type: USERINFO_SUCCESS, payload: res.data})
+        })
+        .catch(err => {
+            dispatch({type: USERINFO_FAIL, payload: err.response})
+        })
+}
