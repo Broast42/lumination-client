@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import io from "socket.io-client";
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import HomeUserInfo from './page-components/HomeUserInfo'
+import HomeUserInfo from './page-components/HomeUserInfo';
+import HomeOnlineUsers from './page-components/HomeOnlineUsers';
 
 
 const HomePage = props => {
@@ -25,8 +26,9 @@ const HomePage = props => {
     
     return (
         <div>
-            <div>
-                <HomeUserInfo /> 
+            <div className="home-top-panel">
+                <HomeUserInfo />
+                <HomeOnlineUsers socket={socket}/>
             </div>
             <div>
 
