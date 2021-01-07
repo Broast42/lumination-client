@@ -55,7 +55,7 @@ const Register = props => {
                 setEmailStatus("warning")
                 return
             }else if(/\S+@\S+\.\S+/.test(email) === false){
-                //!email.includes("@") || !email.includes(".com")
+                
                 setEmailStatus("error")
                 return
             }

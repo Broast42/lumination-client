@@ -1,11 +1,17 @@
+.home-top-panel{
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+}
+
 .home-user-info{
     padding: 20px;
+    width: 50%;
     
     .user-info-window{
         color: $neutral-light;
         padding: 10px;
-        width: 48%;
-        min-height: 250px;
+        min-height: 270px;
         background: $secondary-dark;
         border: 2px solid $secondary;
         border-radius: 10px;
@@ -19,14 +25,19 @@
             text-align: center;
             margin-top: 15px;
         }
-
-        .level-stats{
+        
+        .lvl-info{
+            width: 30%;
             text-align: center;
-            margin-top: 10px;
-
+            
             div{
-                margin-bottom: 5px;;
+                margin-bottom: 10px;
+
+                p{
+                    margin-bottom: 5px;
+                }
             }
+        
         }
 
         .level-info{
@@ -34,32 +45,17 @@
             padding: 10px;
             justify-content: space-between;
             margin-top: 20px;
+            
+        }
+
+        .lvl-info-text{
+            color: $purple;
+            text-shadow: 1px 1px 1px $pink;
         }
 
         .user-stats{
-            width: 25%;
-            text-align: center;
-
-            div{
-                margin: 10px 0px;
-
-                p:first-child{
-                    margin-bottom: 5px;
-                    
-                }
-            }
-        }
-
-        .wins{
-            color: #2cd916; 
-        }
-
-        .losses{
-           color: #f26666; 
-        }
-
-        .draws{
-            color: #fcb900;
+            display:flex;
+            justify-content: space-between;
         }
 
         .progress .ant-progress-text{
@@ -67,9 +63,111 @@
             font-size: 4rem;
             
         }
+
+        .rankprog .ant-progress-text{
+            color: $neutral-light;
+            font-size: 2rem;
+        }
+
+        .level-meter{
+            margin-left: 30px;
+        }
+    }
+}
+
+.online-users{
+    color: $neutral-light;
+    padding: 20px;
+    width: 50%;
     
     
+    .online-users-window{
+        padding: 10px;
+        border: 2px solid $neutral-light;
+        border-radius: 10px;
+        height: 270px;
+        background: $primary;
+        //height: 100%;
+        //overflow: hidden;
     }
 
+    .online-users-header{
+        font-size: 1.2rem;
+        text-align: center;
+    }
 
+    .list-window{
+        margin: 10px 5px 5px 5px;
+        overflow: auto;
+        font-size: 1.6rem;
+        height: 210px;
+        
+        .uc-bg:nth-child(odd) {
+            background: $secondary-dark;
+            
+        }
+
+        .uc-bg:nth-child(even) {
+            background: $neutral-dark;
+            
+        }
+
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+      }
+      
+    /* Track */
+    ::-webkit-scrollbar-track {
+    background: $secondary-dark;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+    background: $primary;
+    border-radius: 5px;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+    background: $secondary;
+    }
+
+    .users-list-card{
+        width: 98%;
+        min-height: 40px;
+        margin: 5px 0px;
+        padding: 4px;
+        padding-left: 10px;
+        border: 1px solid $primary;
+        border-radius: 25px;
+        display:flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .small-rank .ant-progress-text{
+        color: $neutral-light;
+        font-size: 1.3rem;
+    }
+      
+    
 }
+
+.wins{
+    color: $green; 
+}
+
+.losses{
+   color: $red; 
+}
+
+.draws{
+    color: $orange;
+}
+
+.wlp{
+    color: $yellow;
+}
+
