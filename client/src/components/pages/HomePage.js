@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import HomeUserInfo from './page-components/HomeUserInfo';
 import HomeOnlineUsers from './page-components/HomeOnlineUsers';
+import GameCenter from './page-components/GameCenter';
 
 
 const HomePage = props => {
@@ -31,7 +32,7 @@ const HomePage = props => {
                 <HomeOnlineUsers socket={socket}/>
             </div>
             <div>
-
+                <GameCenter />
             </div>
         </div>
     )
